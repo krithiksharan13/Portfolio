@@ -1,5 +1,6 @@
 
 import Hero from '@/components/Hero';
+import Seo from '@/components/Seo';
 import ProjectCard from '@/components/ProjectCard';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -48,6 +49,10 @@ const Index = () => {
   const featuredProjects = [...academicFeatured, ...portfolioFeatured, ...hackathonFeatured];
   return (
     <div>
+      <Seo
+        path="/"
+        description="Krithik Sharan S A — a data analyst turning complex data into clear, actionable insight. Explore his experience, projects, education and certifications."
+      />
       <Hero />
       
       <SectionWrapper className="bg-card/20">

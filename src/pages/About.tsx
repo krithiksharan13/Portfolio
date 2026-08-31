@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
+import Seo from '@/components/Seo';
 
 const About = () => {
   return (
     <section id="about" className="py-20 md:py-32">
+      <Seo
+        title="About"
+        description="Krithik Sharan — data analyst with a background in fintech, business intelligence and risk analytics, now pursuing an MSc in Data Science at the University of Leeds."
+      />
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

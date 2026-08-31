@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
 import EducationCard from '@/components/EducationCard';
 import React from 'react';
+import Seo from '@/components/Seo';
 import { educationData } from '@/data/educationData';
 
 const Education = () => {
   return (
     <section id="education" className="py-20 md:py-32">
+      <Seo
+        title="Education"
+        description="Krithik Sharan's academic background — MSc Data Science and Analytics at the University of Leeds and B.Tech in Information Technology at SSN College of Engineering."
+      />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

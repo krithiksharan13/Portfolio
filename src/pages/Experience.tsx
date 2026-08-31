@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import ExperienceCard from '@/components/ExperienceCard';
 import ExperienceSection from '@/components/ExperienceSection';
+import Seo from '@/components/Seo';
 import { professionalExperiences } from '@/data/professionalExperience';
 import { otherExperiences } from '@/data/otherExperience';
 import { minorExperiences } from '@/data/minorExperience';
@@ -27,6 +28,10 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20 md:py-32">
+      <Seo
+        title="Experience"
+        description="Krithik Sharan's work history across data analysis, BI development, AI automation and risk analytics — plus freelance and leadership roles."
+      />
       <div className="container mx-auto px-4">
         {/* Navigation Tabs */}
         <motion.div

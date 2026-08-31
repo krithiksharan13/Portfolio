@@ -3,10 +3,15 @@ import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ContactForm } from '@/components/ContactForm';
+import Seo from '@/components/Seo';
 
 const Contact = () => {
   return (
     <section id="contact" className="py-20 md:py-32">
+      <Seo
+        title="Contact"
+        description="Get in touch with Krithik Sharan — data analyst based in Leeds, England. Open to projects, collaboration and opportunities."
+      />
       <div className="container mx-auto px-4 text-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

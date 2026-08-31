@@ -2,6 +2,7 @@ import ProjectCard from '../components/ProjectCard';
 import HackathonProjectCard from '../components/HackathonProjectCard';
 import AcademicProjectCard from '../components/AcademicProjectCard';
 import CompetitionCard from '../components/CompetitionCard';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { projects } from '@/data/projectsData';
 import { hackathonProjects } from '@/data/hackathonProjectsData';
@@ -31,6 +32,10 @@ const Portfolio = () => {
 
   return (
     <div className="py-20 md:py-32 bg-card">
+      <Seo
+        title="Portfolio"
+        description="Academic, professional, hackathon and competition projects by Krithik Sharan — spanning data analysis, machine learning, dashboards and web builds."
+      />
       <div className="container mx-auto px-4">
         {/* Navigation Tabs */}
         <motion.div

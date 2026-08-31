@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import CertificateCard from '@/components/CertificateCard';
+import Seo from '@/components/Seo';
 import { certificateCategories } from '@/data/certificatesData';
 
 const containerVariants = {
@@ -20,6 +21,10 @@ const Certificates = () => {
 
   return (
     <div className="py-20 md:py-32 bg-card">
+      <Seo
+        title="Certificates"
+        description="Certifications held by Krithik Sharan across data analytics, AI, and job simulations from Forage, LinkedIn Learning, Udemy and NPTEL."
+      />
       <div className="container mx-auto px-4">
         {/* Navigation Bar */}
         <motion.div

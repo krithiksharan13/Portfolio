@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
 import ExperienceCard from '@/components/ExperienceCard';
 import React from 'react';
+import Seo from '@/components/Seo';
 import { volunteeringData } from '@/data/volunteeringData';
 
 const Volunteering = () => {
   return (
     <section id="volunteering" className="py-20 md:py-32">
+      <Seo
+        title="Volunteering"
+        description="Krithik Sharan's community work — tutoring, volunteer education for rural and under-resourced students, animal welfare, and event organisation."
+      />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
