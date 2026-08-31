@@ -8,14 +8,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import type { Award } from "@/data/awardsData";
+import type { Honour } from "@/data/honoursData";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
-const AwardCard = ({ title, placement, issuer, date, associatedWith, description, images = [] }: Award) => {
+const HonourCard = ({ title, placement, issuer, date, associatedWith, description, images = [] }: Honour) => {
   const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
   return (
@@ -31,7 +31,7 @@ const AwardCard = ({ title, placement, issuer, date, associatedWith, description
           )}
         </div>
 
-        <h3 className="text-lg font-semibold leading-snug">{title}</h3>
+        <h2 className="text-lg font-semibold leading-snug">{title}</h2>
         <p className="mt-1 text-sm text-foreground/60">
           {issuer} · {date}
         </p>
@@ -87,4 +87,4 @@ const AwardCard = ({ title, placement, issuer, date, associatedWith, description
   );
 };
 
-export default AwardCard;
+export default HonourCard;

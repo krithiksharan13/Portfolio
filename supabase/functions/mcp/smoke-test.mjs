@@ -18,8 +18,9 @@ check("notifications/initialized -> null", handleRpc({ jsonrpc: "2.0", method: "
 // tools/list
 const list = handleRpc({ jsonrpc: "2.0", id: 2, method: "tools/list" });
 const names = (list?.result?.tools ?? []).map((t) => t.name);
-check("tools/list has 6 tools", names.length === 6);
+check("tools/list has 7 tools", names.length === 7);
 check("tools/list includes get_profile", names.includes("get_profile"));
+check("tools/list includes list_honours", names.includes("list_honours"));
 check("every tool has an object inputSchema", list.result.tools.every((t) => t.inputSchema?.type === "object"));
 
 // tools/call get_profile
@@ -67,7 +68,7 @@ const post = await handleRequest(
   }),
 );
 const postJson = await post.json();
-check("POST tools/list -> 6 tools", postJson.result.tools.length === 6);
+check("POST tools/list -> 7 tools", postJson.result.tools.length === 7);
 
 console.log(failures === 0 ? "\nALL PASS" : `\n${failures} FAILURE(S)`);
 process.exit(failures === 0 ? 0 : 1);

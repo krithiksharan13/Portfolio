@@ -16,6 +16,7 @@ import {
   competitions,
   education,
   hackathonProjects,
+  honours,
   minorExperiences,
   otherExperiences,
   portfolioProjects,
@@ -30,8 +31,8 @@ const INSTRUCTIONS =
   "Read-only tools for Krithik Sharan S A's portfolio. Use get_profile for a " +
   "summary and contact links, list_experience for work history, list_projects " +
   "for portfolio/hackathon/academic/competition projects, list_certificates " +
-  "for certifications, list_education for degrees, and list_volunteering for " +
-  "volunteering work.";
+  "for certifications, list_education for degrees, list_volunteering for " +
+  "volunteering work, and list_honours for awards and recognition.";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -158,6 +159,14 @@ const tools: Tool[] = [
       "Krithik's volunteering roles with organisation, duration and contributions.",
     inputSchema: jsonSchema(),
     handler: () => volunteering,
+  },
+  {
+    name: "list_honours",
+    title: "List honours",
+    description:
+      "Krithik's honours and recognition (student representation awards), with issuer and date.",
+    inputSchema: jsonSchema(),
+    handler: () => honours,
   },
 ];
 

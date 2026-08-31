@@ -17,7 +17,7 @@ const Education = React.lazy(() => import("./pages/Education"));
 const Experience = React.lazy(() => import("./pages/Experience"));
 const Volunteering = React.lazy(() => import("./pages/Volunteering"));
 const Certificates = React.lazy(() => import("./pages/Certificates"));
-const Awards = React.lazy(() => import("./pages/Awards"));
+const Honours = React.lazy(() => import("./pages/Honours"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -40,7 +40,7 @@ const App = () => (
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:slug" element={<ProjectDetail />} />
               <Route path="/certificates" element={<Certificates />} />
-              <Route path="/awards" element={<Awards />} />
+              <Route path="/honours" element={<Honours />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Route>

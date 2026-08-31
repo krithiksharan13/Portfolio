@@ -11,7 +11,7 @@ now a self-hosted single-page app on Vercel with a Supabase backend.
 ## Features
 
 - **Sections** - Home, About (with a Skills & Tools grid), Experience, Education,
-  Volunteering, Portfolio, Certificates, Contact
+  Volunteering, Portfolio, Certificates, Honours, Contact
 - **Project detail pages** - every project (`/portfolio/<slug>`) has its own
   indexable page with objectives, methods, results, contributors and links
 - **Portfolio search & filters** - full-text search plus quick tool filters

@@ -14,6 +14,7 @@ function - no external dependencies, no Lovable SDK.
 | `list_certificates` | Certifications (`category`, `issuer` filters) |
 | `list_education` | Degrees, institutions, modules |
 | `list_volunteering` | Volunteering roles |
+| `list_honours` | Awards and recognition |
 
 ## Files
 

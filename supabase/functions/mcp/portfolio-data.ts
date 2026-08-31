@@ -298,6 +298,18 @@ export const portfolioProjects = [
 
 export const hackathonProjects = [
   {
+    title: "SharkNinja JailbreakEDU AI Hackathon",
+    description:
+      "Collaborated with a multidisciplinary team to develop an AI-driven solution for a real-world business challenge set by SharkNinja. Recognised among the top-performing teams. Associated with the University of Leeds.",
+    result: "Top 5",
+  },
+  {
+    title: "AI in the Box Hackathon",
+    description:
+      "A hackathon run by the Leeds AI Society with Leaning Technologies, Helix and the University of Leeds (2-3 May 2026). Reached the Top 10 finalist round.",
+    result: "Top 10 Finalist",
+  },
+  {
     title: "CheerpJ 2025",
     description:
       "A fully interactive GameBoy-style web console built with only HTML, CSS, and vanilla JavaScript, capable of running Java .jar games in the browser via CheerpJ 3.0. CheerpJ Hackathon 2025 winner.",
@@ -338,6 +350,25 @@ export const hackathonProjects = [
       "https://github.com/krithiksharan13/Portfolio",
     liveUrl: "https://krithik-sharan.vercel.app/",
     result: "Submission",
+  },
+];
+
+export const honours = [
+  {
+    title: "Special Recognition Award",
+    issuer: "Leeds University Union",
+    date: "May 2026",
+    associatedWith: "University of Leeds",
+    description:
+      "Nominated by fellow colleagues who work towards improving the student experience at the University of Leeds.",
+  },
+  {
+    title: "Academic Rep of the Year (Faculty of EPS) - Winner",
+    issuer: "University of Leeds",
+    date: "Apr 2026",
+    associatedWith: "University of Leeds",
+    description:
+      "Awarded for outstanding contribution to student representation, following nomination by 10+ students and staff. Recognised for engaging with peers and university stakeholders, advocating student perspectives, and driving academic improvements.",
   },
 ];
 

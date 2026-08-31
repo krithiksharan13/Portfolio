@@ -15,7 +15,7 @@ const navLinks = [
   { to: '/volunteering', label: 'Volunteering' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/certificates', label: 'Certificates' },
-  { to: '/awards', label: 'Awards' },
+  { to: '/honours', label: 'Honours' },
   { to: '/contact', label: 'Contact' },
 ];
 

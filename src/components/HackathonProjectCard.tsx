@@ -12,15 +12,9 @@ import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink, Github, Medal, Trophy } from 'lucide-react';
 import { slugify } from '@/lib/projects';
+import type { HackathonProject } from '@/data/hackathonProjectsData';
 
-interface HackathonProjectCardProps {
-  title: string;
-  description: string;
-  githubUrl: string;
-  liveUrl: string;
-  isWinner?: boolean;
-  position?: string;
-}
+type HackathonProjectCardProps = HackathonProject;
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -70,11 +64,13 @@ const HackathonProjectCard = ({
               Details <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="icon" aria-label="GitHub repository">
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="h-4 w-4" />
-            </a>
-          </Button>
+          {githubUrl && (
+            <Button asChild variant="outline" size="icon" aria-label="GitHub repository">
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+              </a>
+            </Button>
+          )}
           {liveUrl && (
             <Button asChild variant="outline" size="icon" aria-label="Live demo">
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">

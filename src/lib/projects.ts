@@ -101,6 +101,7 @@ function normalize(): NormalizedProject[] {
       category: "hackathon",
       title: p.title,
       summary: p.description,
+      images: p.images,
       tools: [],
       badges: badge ? [badge] : [],
       githubUrl: p.githubUrl,
