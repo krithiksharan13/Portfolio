@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -14,54 +14,90 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Phone } from 'lucide-react';
+import { Loader2, Send } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  message: z.string().max(2000, {
-    message: "Message must not be longer than 400 words (approx. 2000 characters)."
-  }).min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
+  name: z.string().trim().max(120, "Name is too long.").optional(),
+  email: z.string().trim().email("Please enter a valid email address."),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Message must be at least 10 characters.")
+    .max(5000, "Message is too long (5000 characters max)."),
 });
+
+type FormValues = z.infer<typeof formSchema>;
 
 export function ContactForm() {
   const { toast } = useToast();
-  const form = useForm<z.infer<typeof formSchema>>({
+  const [submitting, setSubmitting] = useState(false);
+
+  const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", message: "" },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const subject = "Portfolio Website";
-    const body = `Email from: ${values.email}\n\nMessage:\n${values.message}`;
-    const mailtoLink = `mailto:krithiksharan13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailtoLink;
+  async function onSubmit(values: FormValues) {
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_messages").insert({
+        name: values.name?.trim() || null,
+        email: values.email.trim(),
+        message: values.message.trim(),
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 1024) : null,
+      });
 
-    toast({
-      title: "Email client opened!",
-      description: "Please send the email from your default mail app.",
-    });
-    form.reset();
+      if (error) throw error;
+
+      toast({
+        title: "Message sent",
+        description: "Thanks for reaching out — I'll get back to you soon.",
+      });
+      form.reset();
+    } catch (err) {
+      console.error("contact submit failed", err);
+      toast({
+        variant: "destructive",
+        title: "Something went wrong",
+        description:
+          "Your message couldn't be sent. Please email krithiksharan13@gmail.com directly.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-2xl mx-auto">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-2xl mx-auto text-left">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name (optional)</FormLabel>
+              <FormControl>
+                <Input placeholder="Your name" autoComplete="name" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Email</FormLabel>
+              <FormLabel>Your email</FormLabel>
               <FormControl>
-                <Input placeholder="you@example.com" {...field} />
+                <Input
+                  type="email"
+                  placeholder="you@example.com"
+                  autoComplete="email"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -75,7 +111,7 @@ export function ContactForm() {
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Your message here... (max 400 words)"
+                  placeholder="Your message here..."
                   className="resize-none"
                   rows={7}
                   {...field}
@@ -85,13 +121,17 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" size="lg" className="w-full">
-            Send Message <Send className="ml-2 h-5 w-5" />
+        <Button type="submit" size="lg" className="w-full" disabled={submitting}>
+          {submitting ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending…
+            </>
+          ) : (
+            <>
+              Send message <Send className="ml-2 h-5 w-5" />
+            </>
+          )}
         </Button>
-        <div className="flex items-center justify-center gap-2 pt-4 text-foreground/70">
-          <Phone className="h-4 w-4" />
-          <span className="text-sm">+44 7818 568491</span>
-        </div>
       </form>
     </Form>
   );
