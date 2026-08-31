@@ -1,0 +1,14 @@
+{
+  "name": "Krithik Sharan S A — Portfolio",
+  "short_name": "Krithik Sharan",
+  "description": "A Data Analyst who transforms numbers into narratives.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1010",
+  "theme_color": "#0d1010",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}
