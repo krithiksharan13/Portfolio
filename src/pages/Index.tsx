@@ -2,6 +2,7 @@
 import Hero from '@/components/Hero';
 import Seo from '@/components/Seo';
 import ProjectCard from '@/components/ProjectCard';
+import TestimonialsRail from '@/components/TestimonialsRail';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Link as RouterLink } from 'react-router-dom';
@@ -147,6 +148,11 @@ const Index = () => {
       </SectionWrapper>
 
       <SectionWrapper className="bg-card/20">
+        <SectionHeader title="What People Say" />
+        <TestimonialsRail />
+      </SectionWrapper>
+
+      <SectionWrapper>
         <div className="container mx-auto px-4 text-center">
             <SectionHeader title="Get In Touch" />
             <p className="max-w-2xl mx-auto text-lg text-foreground/80 mb-8">

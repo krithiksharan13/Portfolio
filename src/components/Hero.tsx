@@ -84,14 +84,14 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center text-center md:text-left bg-grid-white/[0.05]">
+    <section id="home" className="min-h-screen flex items-center justify-center text-center lg:text-left bg-grid-white/[0.05]">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="order-1 md:order-2"
+            className="order-1 lg:order-2"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               {greetingWords.map((word, wi) => (
@@ -126,7 +126,7 @@ const Hero = () => {
             <p className="text-lg md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto md:mx-0">
               A Data Analyst who transforms numbers into narratives.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <RouterLink to="/portfolio">
                 <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground w-full sm:w-auto">
                   View Portfolio <ArrowRight className="ml-2 h-5 w-5" />
@@ -155,7 +155,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="order-2 md:order-1 flex justify-center group"
+            className="order-2 lg:order-1 flex justify-center group"
           >
             <div className="relative w-64 md:w-80 aspect-square">
               <img 
