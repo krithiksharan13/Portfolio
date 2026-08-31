@@ -1,0 +1,53 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 4% 6%; /* #0d1010 - Almost Jet Black */
+    --foreground: 0 0% 87.8%; /* #E0E0E0 - Light Grey */
+
+    --card: 180 4% 10%; /* A slightly lighter black for cards */
+    --card-foreground: 0 0% 87.8%;
+
+    --popover: 180 4% 6%;
+    --popover-foreground: 0 0% 87.8%;
+
+    --primary: 195 100% 47%; /* #00AEEF - Electric Blue */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 1.5 100% 61%; /* #FF3C38 - Crimson Red */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 25%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 5% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 195 100% 47%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
