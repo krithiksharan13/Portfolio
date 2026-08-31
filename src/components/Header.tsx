@@ -15,6 +15,7 @@ const navLinks = [
   { to: '/volunteering', label: 'Volunteering' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/certificates', label: 'Certificates' },
+  { to: '/awards', label: 'Awards' },
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -47,7 +48,7 @@ const Header = () => {
 
   const linkClassName = ({ isActive }: { isActive: boolean }) =>
     cn(
-      "text-foreground/80 hover:text-primary transition-colors cursor-pointer hover:underline underline-offset-4 py-2",
+      "text-sm text-foreground/80 hover:text-primary transition-colors cursor-pointer hover:underline underline-offset-4 py-2",
       isActive && "text-primary font-semibold"
     );
 
@@ -75,7 +76,7 @@ const Header = () => {
             Krithik Sharan S A
           </RouterLink>
         </div>
-        <nav aria-label="Primary" className="hidden lg:flex space-x-6 xl:space-x-8 items-center">
+        <nav aria-label="Primary" className="hidden lg:flex space-x-4 xl:space-x-6 items-center">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
