@@ -1,3 +1,7 @@
+import specialRecognitionAward from "@/assets/honours/special-recognition-award.webp";
+import schoolRepCelebration from "@/assets/honours/school-rep-celebration.webp";
+import epsFacultyOfficerCertificate from "@/assets/honours/eps-faculty-officer-certificate.webp";
+
 export interface HonourImage {
   src: string;
   alt: string;
@@ -24,7 +28,11 @@ export const honours: Honour[] = [
     associatedWith: "University of Leeds",
     description:
       "Nominated by fellow colleagues who work towards improving the student experience at the University of Leeds.",
-    images: [],
+    images: [
+      { src: specialRecognitionAward, alt: "Krithik receiving the Special Recognition Award 2026 at the LUU School Rep Celebration" },
+      { src: schoolRepCelebration, alt: "Faculty Officers and School Reps at the LUU School Rep Celebration" },
+      { src: epsFacultyOfficerCertificate, alt: "Krithik's EPS Faculty Officer certificate, presented at the same celebration" },
+    ],
   },
   {
     title: "Academic Rep of the Year (Faculty of EPS)",

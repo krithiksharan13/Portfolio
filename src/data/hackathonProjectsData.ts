@@ -1,6 +1,7 @@
 import sharkninjaTeam from '@/assets/hackathon/sharkninja-team.webp';
 import sharkninjaCohort from '@/assets/hackathon/sharkninja-cohort.webp';
 import aiInTheBoxCertificate from '@/assets/hackathon/ai-in-the-box-certificate.webp';
+import browCodeTeam from '@/assets/hackathon/brow-code-team.webp';
 
 export interface HackathonProjectImage {
   src: string;
@@ -89,6 +90,7 @@ export const hackathonProjects: HackathonProject[] = [
       ],
     },
     images: [
+      { src: browCodeTeam, alt: 'Team WASD demoing Brow-Code? at the AI in the Box Hackathon' },
       { src: aiInTheBoxCertificate, alt: 'AI in the Box Hackathon certificate of participation' },
     ],
   },
