@@ -53,7 +53,7 @@ export function ContactForm() {
 
       toast({
         title: "Message sent",
-        description: "Thanks for reaching out — I'll get back to you soon.",
+        description: "Thanks for reaching out - I'll get back to you soon.",
       });
       form.reset();
     } catch (err) {

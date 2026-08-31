@@ -27,7 +27,7 @@ const ssnActivities = [
     'Instincts 2019 Organizing Volunteer',
     'College Volleyball Reserve Team (2018-2019)',
     'Participated and helped in organizing Workshops, Seminars, Entrepreneurship Drives',
-    'Youth Red Cross 2018-2020 – Blood Donation Camps, Village Workshops (Cleaning, Teaching rural Kids)',
+    'Youth Red Cross 2018-2020 - Blood Donation Camps, Village Workshops (Cleaning, Teaching rural Kids)',
 ];
 
 const seniorSecondaryActivities = [

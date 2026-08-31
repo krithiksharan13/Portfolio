@@ -1,6 +1,6 @@
 /**
  * Site-wide config. Update SITE_URL once the final domain is known
- * (Netlify subdomain or custom domain) — it feeds canonical + OG tags
+ * (Netlify subdomain or custom domain) - it feeds canonical + OG tags
  * and the sitemap.
  */
 export const SITE_URL = "https://krithik-sharan.netlify.app";

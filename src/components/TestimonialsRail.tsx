@@ -13,12 +13,12 @@ const TestimonialCard = ({ t }: { t: Testimonial }) => (
     >
       <Quote className="h-5 w-5 shrink-0 text-primary/70" aria-hidden />
 
-      {/* Summary — hidden once expanded */}
+      {/* Summary - hidden once expanded */}
       <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/80 line-clamp-5 group-hover:hidden">
         {t.summary}
       </p>
 
-      {/* Full text — shown on hover, scrolls if long */}
+      {/* Full text - shown on hover, scrolls if long */}
       <div className="mt-3 hidden flex-1 overflow-y-auto pr-1 group-hover:block">
         <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/80">
           {t.full}

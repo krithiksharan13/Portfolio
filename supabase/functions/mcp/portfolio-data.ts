@@ -3,7 +3,7 @@
 //
 // SOURCE OF TRUTH for the website UI is `src/data/*` in this repo. This file is
 // a plain-data mirror for the Deno edge function (which cannot import the React
-// data modules — they pull in image assets and JSX). Keep the two in sync when
+// data modules - they pull in image assets and JSX). Keep the two in sync when
 // content changes; there is no build step linking them yet.
 // ---------------------------------------------------------------------------
 
@@ -148,7 +148,7 @@ export const otherExperiences = [
   {
     role: "Video Editor & Media Coordinator",
     company: "TEDxYouth@Vannarpettai",
-    duration: "December 2019 – May 2020",
+    duration: "December 2019 - May 2020",
     description:
       "Led video production, sponsor coordination, and live streaming for one of South Tamil Nadu's first TEDx events.",
     achievements: [

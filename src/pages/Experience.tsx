@@ -30,7 +30,7 @@ const Experience = () => {
     <section id="experience" className="py-20 md:py-32">
       <Seo
         title="Experience"
-        description="Krithik Sharan's work history across data analysis, BI development, AI automation and risk analytics — plus freelance and leadership roles."
+        description="Krithik Sharan's work history across data analysis, BI development, AI automation and risk analytics - plus freelance and leadership roles."
       />
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">

@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA fallback — every route serves index.html so react-router can handle it
+# SPA fallback - every route serves index.html so react-router can handle it
 [[redirects]]
   from = "/*"
   to = "/index.html"

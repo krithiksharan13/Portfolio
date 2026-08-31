@@ -34,7 +34,7 @@ const ProjectCard = ({ title, description, tools, imageUrl, githubUrl, slug }: P
   return (
     <motion.div variants={itemVariants} className="h-full">
       <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1 group">
-        <Link to={to} className="block aspect-video overflow-hidden" aria-label={`${title} — details`}>
+        <Link to={to} className="block aspect-video overflow-hidden" aria-label={`${title} - details`}>
           <img
             src={imageUrl}
             alt={title}

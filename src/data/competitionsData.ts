@@ -19,7 +19,7 @@ export const competitions: Competition[] = [
   {
     title: 'Innovate, Validate, Pitch! Mini Business Bootcamp (Tech & Innovation)',
     position: '🥇 1st Place',
-    issuer: 'Spark, Discover Enterprise – University of Leeds',
+    issuer: 'Spark, Discover Enterprise - University of Leeds',
     date: 'Feb 2026',
     summary:
       'Awarded First Place in a competitive pitch-off as part of a half-day enterprise bootcamp for students in the Faculty of Engineering and Physical Sciences.',

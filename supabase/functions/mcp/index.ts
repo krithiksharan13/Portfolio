@@ -283,7 +283,7 @@ export async function handleRequest(request: Request): Promise<Response> {
   });
 }
 
-// Deno (Supabase edge runtime) only — guarded so the module can be imported
+// Deno (Supabase edge runtime) only - guarded so the module can be imported
 // by Node-based tests.
 // deno-lint-ignore no-explicit-any
 const g = globalThis as any;

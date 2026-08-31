@@ -9,7 +9,7 @@ const Education = () => {
     <section id="education" className="py-20 md:py-32">
       <Seo
         title="Education"
-        description="Krithik Sharan's academic background — MSc Data Science and Analytics at the University of Leeds and B.Tech in Information Technology at SSN College of Engineering."
+        description="Krithik Sharan's academic background - MSc Data Science and Analytics at the University of Leeds and B.Tech in Information Technology at SSN College of Engineering."
       />
       <div className="container mx-auto px-4">
         <motion.div

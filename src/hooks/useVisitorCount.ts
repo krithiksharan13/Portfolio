@@ -15,7 +15,7 @@ function getVisitorId(): string {
     }
     return id;
   } catch {
-    // localStorage blocked — fall back to an ephemeral id
+    // localStorage blocked - fall back to an ephemeral id
     return `v_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
   }
 }
@@ -56,7 +56,7 @@ export function useVisitorCount() {
           setCount(data);
         }
       } catch {
-        /* backend unavailable — leave count null */
+        /* backend unavailable - leave count null */
       }
     })();
 

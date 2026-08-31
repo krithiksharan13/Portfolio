@@ -65,7 +65,7 @@ export const otherExperiences: ExperienceItem[] = [
   {
     role: 'Video Editor & Media Coordinator',
     company: 'TEDxYouth@Vannarpettai',
-    duration: 'December 2019 – May 2020',
+    duration: 'December 2019 - May 2020',
     description: 'Led video production, sponsor coordination, and live streaming for TEDxYouth@Vannarpettai - one of South Tamil Nadu\'s first TEDx events.',
     companyLink: 'https://www.instagram.com/tedxyouthvannarpettai/?hl=en',
     achievements: [

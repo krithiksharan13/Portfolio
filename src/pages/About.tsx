@@ -7,7 +7,7 @@ const About = () => {
     <section id="about" className="py-20 md:py-32">
       <Seo
         title="About"
-        description="Krithik Sharan — data analyst with a background in fintech, business intelligence and risk analytics, now pursuing an MSc in Data Science at the University of Leeds."
+        description="Krithik Sharan - data analyst with a background in fintech, business intelligence and risk analytics, now pursuing an MSc in Data Science at the University of Leeds."
       />
       <div className="container mx-auto px-4">
         <motion.div 
@@ -29,7 +29,7 @@ const About = () => {
           className="max-w-3xl mx-auto text-foreground/80 space-y-6"
         >
           <p className="text-lg italic font-medium text-center">
-            𝙄𝙣 𝙖𝙣 𝙪𝙣𝙥𝙧𝙚𝙙𝙞𝙘𝙩𝙖𝙗𝙡𝙚 𝙬𝙤𝙧𝙡𝙙, 𝙄'𝙫𝙚 𝙖𝙡𝙬𝙖𝙮𝙨 𝙗𝙚𝙚𝙣 𝙙𝙧𝙖𝙬𝙣 𝙩𝙤 𝙬𝙝𝙖𝙩 𝙘𝙖𝙣 𝙗𝙚 𝙥𝙧𝙚𝙙𝙞𝙘𝙩𝙚𝙙 — the structure and clarity that data brings.
+            𝙄𝙣 𝙖𝙣 𝙪𝙣𝙥𝙧𝙚𝙙𝙞𝙘𝙩𝙖𝙗𝙡𝙚 𝙬𝙤𝙧𝙡𝙙, 𝙄'𝙫𝙚 𝙖𝙡𝙬𝙖𝙮𝙨 𝙗𝙚𝙚𝙣 𝙙𝙧𝙖𝙬𝙣 𝙩𝙤 𝙬𝙝𝙖𝙩 𝙘𝙖𝙣 𝙗𝙚 𝙥𝙧𝙚𝙙𝙞𝙘𝙩𝙚𝙙 - the structure and clarity that data brings.
           </p>
 
           <p>
@@ -37,8 +37,8 @@ const About = () => {
           </p>
 
           <p>
-            My journey into data science didn't start with a textbook — it started with a love for probability, the math of possibility, and a desire to solve real-world problems.
-            💡 Since then, I've explored fintech, business intelligence, and risk analytics — always striving to make data not just usable, but understandable.
+            My journey into data science didn't start with a textbook - it started with a love for probability, the math of possibility, and a desire to solve real-world problems.
+            💡 Since then, I've explored fintech, business intelligence, and risk analytics - always striving to make data not just usable, but understandable.
           </p>
 
           <div className="bg-card/50 p-6 rounded-lg border border-border/50">
@@ -61,16 +61,16 @@ const About = () => {
               <li>✅ Accelerated decisions</li>
               <li>✅ Boosted retention</li>
             </ul>
-            <p className="mt-2">And when needed? I've gone manual — parsing handwritten records and perfecting dashboards until they feel just right.</p>
+            <p className="mt-2">And when needed? I've gone manual - parsing handwritten records and perfecting dashboards until they feel just right.</p>
           </div>
 
           <p>
-            🎓 Now, I'm pursuing my MSc in Data Science at the University of Leeds, diving deeper into research and machine learning — areas I've long admired (and finally decided to master).
+            🎓 Now, I'm pursuing my MSc in Data Science at the University of Leeds, diving deeper into research and machine learning - areas I've long admired (and finally decided to master).
           </p>
 
           <div className="bg-card/50 p-6 rounded-lg border border-border/50">
             <p>
-              🎮 Outside work, <em>I'm a completionist gamer</em> — RPGs, FPS, puzzles — if there's a hidden collectible, I'll find it.
+              🎮 Outside work, <em>I'm a completionist gamer</em> - RPGs, FPS, puzzles - if there's a hidden collectible, I'll find it.
             </p>
             <p className="mt-2">That mindset flows into my work too:</p>
             <ul className="mt-2 space-y-1 ml-4">
@@ -81,7 +81,7 @@ const About = () => {
           </div>
 
           <p>
-            ⚽🏐🏀 I'm also a huge sports fan — mainly football, volleyball & basketball.
+            ⚽🏐🏀 I'm also a huge sports fan - mainly football, volleyball & basketball.
             I captained the first school teams in all three, helping build some of the strongest squads in South Tamil Nadu, and later played university-level volleyball pre-COVID.
             Being captain wasn't just about wins; it taught me how to lead, bounce back, back my team, and keep energy high no matter the score.
           </p>
@@ -100,7 +100,7 @@ const About = () => {
             𝗪𝗼𝗿𝗸𝗶𝗻𝗴 𝗮𝘁 𝘁𝗵𝗲 𝗰𝗿𝗼𝘀𝘀𝗿𝗼𝗮𝗱𝘀 𝗼𝗳 𝗱𝗮𝘁𝗮, 𝗱𝗲𝗰𝗶𝘀𝗶𝗼𝗻𝘀 & 𝗵𝘂𝗺𝗮𝗻 𝗯𝗲𝗵𝗮𝘃𝗶𝗼𝗿?
           </p>
           <p className="text-center">
-            Let's chat — over a <em>cup of coffee</em> ☕ or even better, <em>a plate of Biriyani</em> 🍛
+            Let's chat - over a <em>cup of coffee</em> ☕ or even better, <em>a plate of Biriyani</em> 🍛
           </p>
         </motion.div>
 

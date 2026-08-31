@@ -35,7 +35,7 @@ function setLink(rel: string, href: string) {
 /**
  * Imperatively syncs <head> tags for the current route. Covers the browser tab
  * title and JS-rendering crawlers (Google/Bing). Social scrapers that don't run
- * JS fall back to the defaults in index.html — per-route social cards will come
+ * JS fall back to the defaults in index.html - per-route social cards will come
  * with prerendering later.
  */
 const Seo = ({

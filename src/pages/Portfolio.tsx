@@ -64,7 +64,7 @@ const Portfolio = () => {
     <div className="py-20 md:py-32 bg-card">
       <Seo
         title="Portfolio"
-        description="Academic, professional, hackathon and competition projects by Krithik Sharan — spanning data analysis, machine learning, dashboards and web builds."
+        description="Academic, professional, hackathon and competition projects by Krithik Sharan - spanning data analysis, machine learning, dashboards and web builds."
       />
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">

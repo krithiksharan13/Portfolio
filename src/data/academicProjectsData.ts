@@ -101,7 +101,7 @@ export const academicProjects: AcademicProject[] = [
     results: [
       "Logistic Regression achieved 82.8% accuracy",
       "Attitudes dominate predictive power over demographics",
-      "K-Means clustering revealed a strong Global North–South divide"
+      "K-Means clustering revealed a strong Global North-South divide"
     ],
     contributors: [
       "Nilavan Sritharan",
@@ -116,7 +116,7 @@ export const academicProjects: AcademicProject[] = [
     emoji: "🧍‍♂️",
     image: crowdDetectionImg,
     tag: "Undergraduate",
-    subtitle: "Final Year B.Tech Project – Information Technology | Sri Sivasubramaniya Nadar College of Engineering, June 2022",
+    subtitle: "Final Year B.Tech Project - Information Technology | Sri Sivasubramaniya Nadar College of Engineering, June 2022",
     developers: [
       "Jajula Abhaya Chetna (185002039)",
       "S A Krithik Sharan (185002052)"

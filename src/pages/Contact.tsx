@@ -10,7 +10,7 @@ const Contact = () => {
     <section id="contact" className="py-20 md:py-32">
       <Seo
         title="Contact"
-        description="Get in touch with Krithik Sharan — data analyst based in Leeds, England. Open to projects, collaboration and opportunities."
+        description="Get in touch with Krithik Sharan - data analyst based in Leeds, England. Open to projects, collaboration and opportunities."
       />
       <div className="container mx-auto px-4 text-center">
         <motion.div 

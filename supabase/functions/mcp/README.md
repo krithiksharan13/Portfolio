@@ -2,7 +2,7 @@
 
 A read-only [Model Context Protocol](https://modelcontextprotocol.io) server that
 exposes the portfolio content as tools for AI agents. Standalone Deno edge
-function — no external dependencies, no Lovable SDK.
+function - no external dependencies, no Lovable SDK.
 
 ## Tools
 
@@ -17,9 +17,9 @@ function — no external dependencies, no Lovable SDK.
 
 ## Files
 
-- `index.ts` — MCP Streamable-HTTP transport (JSON-RPC 2.0 over one POST endpoint)
-- `portfolio-data.ts` — plain-data mirror of `src/data/*` (keep in sync manually)
-- `smoke-test.mjs` — `npx tsx supabase/functions/mcp/smoke-test.mjs`
+- `index.ts` - MCP Streamable-HTTP transport (JSON-RPC 2.0 over one POST endpoint)
+- `portfolio-data.ts` - plain-data mirror of `src/data/*` (keep in sync manually)
+- `smoke-test.mjs` - `npx tsx supabase/functions/mcp/smoke-test.mjs`
 
 ## Deploy (when ready)
 

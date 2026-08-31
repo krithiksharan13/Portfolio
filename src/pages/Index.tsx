@@ -52,7 +52,7 @@ const Index = () => {
     <div>
       <Seo
         path="/"
-        description="Krithik Sharan S A — a data analyst turning complex data into clear, actionable insight. Explore his experience, projects, education and certifications."
+        description="Krithik Sharan S A - a data analyst turning complex data into clear, actionable insight. Explore his experience, projects, education and certifications."
       />
       <Hero />
       

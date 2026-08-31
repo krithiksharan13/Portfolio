@@ -9,7 +9,7 @@ const Volunteering = () => {
     <section id="volunteering" className="py-20 md:py-32">
       <Seo
         title="Volunteering"
-        description="Krithik Sharan's community work — tutoring, volunteer education for rural and under-resourced students, animal welfare, and event organisation."
+        description="Krithik Sharan's community work - tutoring, volunteer education for rural and under-resourced students, animal welfare, and event organisation."
       />
       <div className="container mx-auto px-4">
         <motion.div
