@@ -2,15 +2,17 @@
 // POST { messages: [{ role: "user" | "assistant", content: string }] }
 // -> streams back plain-text tokens of the assistant's reply.
 //
-// Env vars (set in Vercel -> Project Settings -> Environment Variables):
-//   GEMINI_API_KEY        (required)  Google AI Studio key
-//   VITE_SUPABASE_URL     (already set) used for per-IP rate limiting
-//   VITE_SUPABASE_ANON_KEY(already set)
+// Uses the Gemini Interactions API (stateless: we send the full transcript
+// each call). Env vars (Vercel -> Project Settings -> Environment Variables):
+//   GEMINI_API_KEY         (required)  Google AI Studio key
+//   VITE_SUPABASE_URL      (already set) used for per-IP rate limiting
+//   VITE_SUPABASE_ANON_KEY (already set)
 import { PORTFOLIO_CONTEXT } from "./portfolio-context";
 
 export const config = { runtime: "edge" };
 
-const MODEL = "gemini-2.5-flash";
+const MODEL = "gemini-3.6-flash";
+const ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse";
 const MAX_MESSAGES = 16; // keep the last N turns
 const MAX_CHARS = 2000; // per message
 const MAX_OUTPUT_TOKENS = 700;
@@ -64,6 +66,14 @@ async function underRateLimit(ip: string): Promise<boolean> {
   }
 }
 
+function buildTranscript(messages: { role: "user" | "assistant"; content: string }[]): string {
+  if (messages.length === 1) return messages[0].content;
+  const lines = messages.map(
+    (m) => `${m.role === "user" ? "Visitor" : "You"}: ${m.content}`,
+  );
+  return `Conversation so far:\n\n${lines.join("\n\n")}\n\nReply to the Visitor's last message.`;
+}
+
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
 
@@ -110,27 +120,20 @@ export default async function handler(req: Request): Promise<Response> {
     );
   }
 
-  const geminiBody = {
-    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-    contents: messages.map((m) => ({
-      role: m.role === "assistant" ? "model" : "user",
-      parts: [{ text: m.content }],
-    })),
-    generationConfig: {
-      maxOutputTokens: MAX_OUTPUT_TOKENS,
-      temperature: 0.6,
-      thinkingConfig: { thinkingBudget: 0 },
-    },
-  };
-
-  const upstream = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:streamGenerateContent?alt=sse`,
-    {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
-      body: JSON.stringify(geminiBody),
-    },
-  );
+  const upstream = await fetch(ENDPOINT, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
+    body: JSON.stringify({
+      model: MODEL,
+      system_instruction: SYSTEM_PROMPT,
+      input: buildTranscript(messages),
+      stream: true,
+      generation_config: {
+        max_output_tokens: MAX_OUTPUT_TOKENS,
+        thinking_level: "low",
+      },
+    }),
+  });
 
   if (!upstream.ok || !upstream.body) {
     let detail = "";
@@ -141,16 +144,13 @@ export default async function handler(req: Request): Promise<Response> {
     }
     console.error("gemini upstream error", upstream.status, detail);
     return json(
-      {
-        error: "The assistant is having a moment. Please try again.",
-        upstreamStatus: upstream.status,
-        detail,
-      },
+      { error: "The assistant is having a moment. Please try again.", upstreamStatus: upstream.status, detail },
       502,
     );
   }
 
-  // Transform Gemini's SSE stream into a plain-text token stream for the client.
+  // Interactions API SSE:  event: step.delta
+  //                        data: {"delta":{"text":"...","type":"text"}, ...}
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       const reader = upstream.body!.getReader();
@@ -162,21 +162,21 @@ export default async function handler(req: Request): Promise<Response> {
           const { done, value } = await reader.read();
           if (done) break;
           buffer += decoder.decode(value, { stream: true });
-          const chunks = buffer.split("\n\n");
-          buffer = chunks.pop() ?? "";
-          for (const chunk of chunks) {
-            const line = chunk.split("\n").find((l) => l.startsWith("data:"));
-            if (!line) continue;
-            const data = line.slice(5).trim();
+          const events = buffer.split("\n\n");
+          buffer = events.pop() ?? "";
+          for (const evt of events) {
+            const dataLine = evt.split("\n").find((l) => l.startsWith("data:"));
+            if (!dataLine) continue;
+            const data = dataLine.slice(5).trim();
             if (!data || data === "[DONE]") continue;
             try {
               const parsed = JSON.parse(data);
-              const text = parsed?.candidates?.[0]?.content?.parts
-                ?.map((p: { text?: string }) => p.text ?? "")
-                .join("");
-              if (text) controller.enqueue(encoder.encode(text));
+              const delta = parsed?.delta;
+              if (delta?.type === "text" && typeof delta.text === "string") {
+                controller.enqueue(encoder.encode(delta.text));
+              }
             } catch {
-              /* ignore keep-alives / partials */
+              /* keep-alives / partials */
             }
           }
         }
