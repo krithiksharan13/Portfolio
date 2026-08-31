@@ -10,7 +10,7 @@ import { educationData } from '@/data/educationData';
 import { projects } from '@/data/projectsData';
 import { academicProjects } from '@/data/academicProjectsData';
 import { hackathonProjects } from '@/data/hackathonProjectsData';
-import cheerpjImage from '@/assets/hackathon/cheerpj.png';
+import cheerpjImage from '@/assets/hackathon/cheerpj.webp';
 
 const SectionWrapper = ({ children, className }: { children: React.ReactNode, className?: string }) => (
     <motion.section

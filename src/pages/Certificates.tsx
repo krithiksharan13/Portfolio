@@ -26,6 +26,10 @@ const Certificates = () => {
         description="Certifications held by Krithik Sharan across data analytics, AI, and job simulations from Forage, LinkedIn Learning, Udemy and NPTEL."
       />
       <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold">Certificates</h1>
+          <div className="w-20 h-1 bg-primary mx-auto mt-2" />
+        </div>
         {/* Navigation Bar */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}

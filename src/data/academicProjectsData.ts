@@ -1,7 +1,7 @@
-import crowdDetectionImg from '@/assets/academic/crowd-detection.png';
-import leedsCrimeImg from '@/assets/academic/leeds-crime.png';
-import dogRehomingImg from '@/assets/academic/dog-rehoming.png';
-import globalClimateImg from '@/assets/academic/global-climate.png';
+import crowdDetectionImg from '@/assets/academic/crowd-detection.webp';
+import leedsCrimeImg from '@/assets/academic/leeds-crime.webp';
+import dogRehomingImg from '@/assets/academic/dog-rehoming.webp';
+import globalClimateImg from '@/assets/academic/global-climate.webp';
 
 export interface AcademicProject {
   title: string;

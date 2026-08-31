@@ -1,6 +1,6 @@
 import linkedinLogo from '@/assets/logos/linkedin-learning.png';
-import udemyLogo from '@/assets/logos/udemy.png';
-import nptelLogo from '@/assets/logos/nptel.png';
+import udemyLogo from '@/assets/logos/udemy.webp';
+import nptelLogo from '@/assets/logos/nptel.webp';
 import forageLogo from '@/assets/logos/forage.png';
 import ssnLogo from '@/assets/logos/ssn.png';
 import { certificateCategoriesInfo } from './certificatesList';

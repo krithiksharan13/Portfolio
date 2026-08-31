@@ -1,7 +1,7 @@
-import memoirWinner from '@/assets/competitions/memoir-winner.jpg';
-import memoirCertificate from '@/assets/competitions/memoir-certificate.jpg';
-import memoirWorking from '@/assets/competitions/memoir-working.jpg';
-import memoirGroup from '@/assets/competitions/memoir-group.jpg';
+import memoirWinner from '@/assets/competitions/memoir-winner.webp';
+import memoirCertificate from '@/assets/competitions/memoir-certificate.webp';
+import memoirWorking from '@/assets/competitions/memoir-working.webp';
+import memoirGroup from '@/assets/competitions/memoir-group.webp';
 
 export interface Competition {
   title: string;

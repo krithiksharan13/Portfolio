@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Seo from '@/components/Seo';
+import SkillsSection from '@/components/SkillsSection';
 
 const About = () => {
   return (
@@ -16,7 +17,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
+          <h1 className="text-3xl md:text-4xl font-bold">About Me</h1>
           <div className="w-20 h-1 bg-primary mx-auto mt-2"></div>
         </motion.div>
         
@@ -101,6 +102,20 @@ const About = () => {
           <p className="text-center">
             Let's chat — over a <em>cup of coffee</em> ☕ or even better, <em>a plate of Biriyani</em> 🍛
           </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto mt-20"
+        >
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold">Skills &amp; Tools</h2>
+            <div className="w-16 h-1 bg-primary mx-auto mt-2"></div>
+          </div>
+          <SkillsSection />
         </motion.div>
       </div>
     </section>

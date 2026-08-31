@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 
 const STORAGE_KEY = "portfolio_visitor_id";
 const SESSION_KEY = "portfolio_visit_tracked";
@@ -33,6 +32,9 @@ export function useVisitorCount() {
 
     (async () => {
       try {
+        // Loaded lazily so the Supabase client stays out of the initial bundle.
+        const { supabase } = await import("@/integrations/supabase/client");
+
         let alreadyTracked = false;
         try {
           alreadyTracked = sessionStorage.getItem(SESSION_KEY) === "1";

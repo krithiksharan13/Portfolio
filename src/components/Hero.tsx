@@ -1,25 +1,32 @@
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, ArrowRight } from 'lucide-react';
+import { Download, ArrowRight, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
-import jsPDF from 'jspdf';
 
 const Hero = () => {
-  const defaultImage = "/lovable-uploads/6f80d9a7-6e7c-4703-a7c1-a9470358b9ec.png";
-  const hoverImage = "/lovable-uploads/788976e7-1c83-4adf-8dbf-06ecde26b348.png";
-  const resumeImageUrl = "/lovable-uploads/f164f755-3db9-4fd9-a20c-fd4ec12b4e51.png";
+  const defaultImage = "/lovable-uploads/6f80d9a7-6e7c-4703-a7c1-a9470358b9ec.webp";
+  const hoverImage = "/lovable-uploads/788976e7-1c83-4adf-8dbf-06ecde26b348.webp";
+  const resumeImageUrl = "/lovable-uploads/f164f755-3db9-4fd9-a20c-fd4ec12b4e51.webp";
+
+  const [generating, setGenerating] = useState(false);
 
   const greetingWords = ["Hi,", "I’m"];
   const nameWords = ["Krithik", "Sharan", "S", "A"];
   let charIndex = 0;
   const nextDelay = () => `${charIndex++ * 45}ms`;
 
-  const handleDownloadResume = () => {
-    const img = new Image();
-    img.src = resumeImageUrl;
-    img.onload = () => {
-      const pdf = new jsPDF('p', 'mm', 'a4');
+  const handleDownloadResume = async () => {
+    setGenerating(true);
+    try {
+      const { default: jsPDF } = await import('jspdf');
+      await new Promise<void>((resolve, reject) => {
+        const img = new Image();
+        img.src = resumeImageUrl;
+        img.onerror = () => reject(new Error('resume image failed to load'));
+        img.onload = () => {
+          const pdf = new jsPDF('p', 'mm', 'a4');
       const pageWidth = pdf.internal.pageSize.getWidth();
       const pageHeight = pdf.internal.pageSize.getHeight();
       
@@ -38,7 +45,7 @@ const Hero = () => {
       const x = (pageWidth - pdfImageWidth) / 2;
       const y = 10;
 
-      pdf.addImage(img, 'PNG', x, y, pdfImageWidth, pdfImageHeight);
+      pdf.addImage(img, 'WEBP', x, y, pdfImageWidth, pdfImageHeight);
       
       // Add clickable link overlays for contact info on the PDF.
       // NOTE: The coordinates are estimated based on the visual layout of the resume image.
@@ -64,9 +71,16 @@ const Hero = () => {
       addLink(0.08, emailUrl);
       addLink(0.105, linkedInUrl);
       addLink(0.1175, githubUrl);
-      
-      pdf.save('Krithik_Sharan_Resume.pdf');
-    };
+
+          pdf.save('Krithik_Sharan_Resume.pdf');
+          resolve();
+        };
+      });
+    } catch (err) {
+      console.error('resume download failed', err);
+    } finally {
+      setGenerating(false);
+    }
   };
 
   return (
@@ -118,8 +132,22 @@ const Hero = () => {
                   View Portfolio <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </RouterLink>
-              <Button onClick={handleDownloadResume} variant="outline" size="lg" className="w-full sm:w-auto">
-                Download Resume <Download className="ml-2 h-5 w-5" />
+              <Button
+                onClick={handleDownloadResume}
+                disabled={generating}
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
+                {generating ? (
+                  <>
+                    Preparing… <Loader2 className="ml-2 h-5 w-5 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Download Resume <Download className="ml-2 h-5 w-5" />
+                  </>
+                )}
               </Button>
             </div>
           </motion.div>

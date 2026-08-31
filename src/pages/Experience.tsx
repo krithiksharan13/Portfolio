@@ -33,12 +33,16 @@ const Experience = () => {
         description="Krithik Sharan's work history across data analysis, BI development, AI automation and risk analytics — plus freelance and leadership roles."
       />
       <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold">Experience</h1>
+          <div className="w-20 h-1 bg-primary mx-auto mt-2" />
+        </div>
         {/* Navigation Tabs */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="flex justify-center gap-2 mb-12 sticky top-20 z-10 bg-background/95 backdrop-blur-sm py-3 rounded-full max-w-fit mx-auto px-4 border border-border/50"
+          className="flex flex-wrap justify-center gap-2 mb-12 sticky top-20 z-10 bg-background/95 backdrop-blur-sm py-3 rounded-full max-w-fit mx-auto px-4 border border-border/50"
         >
           <button
             onClick={() => scrollToSection(workRef)}
