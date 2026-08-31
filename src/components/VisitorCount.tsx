@@ -20,7 +20,7 @@ const VisitorCount = ({ className }: { className?: string }) => {
         <strong className="font-semibold text-foreground/80">
           {count.toLocaleString()}
         </strong>{" "}
-        visitors
+        {count === 1 ? "visitor" : "visitors"}
       </span>
     </span>
   );
