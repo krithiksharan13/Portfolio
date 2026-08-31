@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 
@@ -25,6 +26,7 @@ const Layout = () => {
         </Suspense>
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 };

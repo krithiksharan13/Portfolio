@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "tsx scripts/generate-sitemap.mts",
+    "prebuild": "tsx scripts/generate-sitemap.mts && tsx scripts/generate-chat-context.mts",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",

@@ -24,6 +24,9 @@ export const profile = {
   },
 };
 
+export const about =
+  "Krithik Sharan is a data analyst drawn to structure and clarity - where others see chaos, he sees patterns. His path into data science started with a love of probability and a desire to solve real-world problems, and has taken him through fintech, business intelligence, and risk analytics. A project he is proud of: digitising decades of investment data at Radiant Ventures, blending data migration, change management, and human connection - building master tables from scratch and helping financial veterans adopt new workflows. He has hands-on experience with SQL, Python, Power BI, R, and a background in risk assessment, A/B testing, and UI design, delivering insights that reduced losses, accelerated decisions, and improved retention. He is now pursuing an MSc in Data Science and Analytics at the University of Leeds, going deeper into research and machine learning. Outside work he is a completionist gamer (RPGs, FPS, puzzles) and a keen sportsman - he captained his school's first football, volleyball, and basketball teams in South Tamil Nadu and later played university-level volleyball. He is based in Leeds, England and is happy to talk over coffee or a plate of biryani.";
+
 export const professionalExperiences = [
   {
     role: "AI Automation Engineer",
