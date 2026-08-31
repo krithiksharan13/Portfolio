@@ -56,7 +56,11 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-sm' : 'bg-transparent'}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled || !isHomePage
+          ? 'bg-background/80 backdrop-blur-sm border-b border-border/40'
+          : 'bg-transparent'
+      }`}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
         <div className="flex items-center gap-2">
@@ -67,11 +71,11 @@ const Header = () => {
               </Button>
             </RouterLink>
           )}
-          <RouterLink to="/" className="cursor-pointer">
-            <h1 className="text-2xl font-bold text-primary">Krithik Sharan S A</h1>
+          <RouterLink to="/" className="cursor-pointer whitespace-nowrap text-xl lg:text-2xl font-bold text-primary">
+            Krithik Sharan S A
           </RouterLink>
         </div>
-        <nav aria-label="Primary" className="hidden md:flex space-x-8 items-center">
+        <nav aria-label="Primary" className="hidden lg:flex space-x-6 xl:space-x-8 items-center">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -83,7 +87,7 @@ const Header = () => {
           ))}
           <ThemeToggle />
         </nav>
-        <div className="md:hidden flex items-center gap-1">
+        <div className="lg:hidden flex items-center gap-1">
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -100,7 +104,7 @@ const Header = () => {
         <motion.div 
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border/50"
+          className="lg:hidden bg-background/95 backdrop-blur-sm border-t border-border/50"
         >
           <nav aria-label="Mobile" className="flex flex-col items-center space-y-4 py-4">
             {navLinks.map((link) => (

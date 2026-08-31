@@ -1,12 +1,26 @@
-// Generates public/sitemap.xml from the known route list.
-// Run automatically before build (see package.json "prebuild").
+// Generates public/sitemap.xml from the static routes + project detail pages.
+// Run via the "prebuild" npm script. Uses the plain-data portfolio module
+// (no asset imports) so it can run under tsx without Vite.
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import {
+  academicProjects,
+  competitions,
+  hackathonProjects,
+  portfolioProjects,
+} from "../supabase/functions/mcp/portfolio-data.ts";
 
 const SITE_URL = process.env.SITE_URL || "https://krithik-sharan.netlify.app";
 
-const routes = [
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const staticRoutes = [
   { path: "/", priority: "1.0", changefreq: "monthly" },
   { path: "/about", priority: "0.8", changefreq: "monthly" },
   { path: "/experience", priority: "0.9", changefreq: "monthly" },
@@ -17,6 +31,20 @@ const routes = [
   { path: "/contact", priority: "0.5", changefreq: "yearly" },
 ];
 
+const projectTitles = [
+  ...portfolioProjects,
+  ...hackathonProjects,
+  ...academicProjects,
+  ...competitions,
+].map((p) => p.title);
+
+const projectRoutes = [...new Set(projectTitles.map(slugify))].map((slug) => ({
+  path: `/portfolio/${slug}`,
+  priority: "0.6",
+  changefreq: "yearly",
+}));
+
+const routes = [...staticRoutes, ...projectRoutes];
 const today = new Date().toISOString().slice(0, 10);
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -35,6 +63,5 @@ ${routes
 `;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const out = resolve(__dirname, "../public/sitemap.xml");
-writeFileSync(out, xml);
-console.log(`sitemap.xml written (${routes.length} routes) -> ${out}`);
+writeFileSync(resolve(__dirname, "../public/sitemap.xml"), xml);
+console.log(`sitemap.xml written (${routes.length} URLs)`);

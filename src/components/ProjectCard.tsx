@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -10,7 +10,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
+import { ArrowRight, Github } from 'lucide-react';
+import { slugify } from '@/lib/projects';
 
 interface ProjectCardProps {
   title: string;
@@ -18,6 +19,8 @@ interface ProjectCardProps {
   tools: string[];
   imageUrl: string;
   githubUrl?: string;
+  /** Override the derived slug if needed. */
+  slug?: string;
 }
 
 const itemVariants = {
@@ -25,15 +28,26 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const ProjectCard = ({ title, description, tools, imageUrl, githubUrl }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tools, imageUrl, githubUrl, slug }: ProjectCardProps) => {
+  const to = `/portfolio/${slug ?? slugify(title)}`;
+
   return (
-    <motion.div variants={itemVariants}>
+    <motion.div variants={itemVariants} className="h-full">
       <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1 group">
-        <div className="aspect-video overflow-hidden">
-          <img src={imageUrl} alt={title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-        </div>
+        <Link to={to} className="block aspect-video overflow-hidden" aria-label={`${title} — details`}>
+          <img
+            src={imageUrl}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </Link>
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle>
+            <Link to={to} className="hover:text-primary transition-colors">
+              {title}
+            </Link>
+          </CardTitle>
           <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
@@ -45,16 +59,17 @@ const ProjectCard = ({ title, description, tools, imageUrl, githubUrl }: Project
             ))}
           </div>
         </CardContent>
-        <CardFooter>
-          {githubUrl ? (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button variant="outline" className="w-full">
-                <Github className="mr-2" /> Visit Github Page
-              </Button>
-            </a>
-          ) : (
-            <Button variant="outline" className="w-full" disabled>
-              <Github className="mr-2" /> Visit Github Page
+        <CardFooter className="gap-2">
+          <Button asChild variant="secondary" className="flex-1">
+            <Link to={to}>
+              Details <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          {githubUrl && (
+            <Button asChild variant="outline" size="icon" aria-label="GitHub repository">
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+              </a>
             </Button>
           )}
         </CardFooter>

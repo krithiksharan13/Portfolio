@@ -11,6 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 const Index = React.lazy(() => import("./pages/Index"));
 const About = React.lazy(() => import("./pages/About"));
 const Portfolio = React.lazy(() => import("./pages/Portfolio"));
+const ProjectDetail = React.lazy(() => import("./pages/ProjectDetail"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const Education = React.lazy(() => import("./pages/Education"));
 const Experience = React.lazy(() => import("./pages/Experience"));
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/education" element={<Education />} />
               <Route path="/volunteering" element={<Volunteering />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio/:slug" element={<ProjectDetail />} />
               <Route path="/certificates" element={<Certificates />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
