@@ -5,6 +5,7 @@ import { Menu, X, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -67,9 +68,17 @@ const Header = () => {
               {link.label}
             </NavLink>
           ))}
+          <ThemeToggle />
         </nav>
-        <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
+        <div className="md:hidden flex items-center gap-1">
+          <ThemeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X /> : <Menu />}
           </Button>
         </div>

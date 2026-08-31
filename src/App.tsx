@@ -3,8 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useEffect } from "react";
+import React from "react";
+import { ThemeProvider } from "@/components/theme-provider";
 import Layout from "./components/Layout";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Index = React.lazy(() => import("./pages/Index"));
 const About = React.lazy(() => import("./pages/About"));
@@ -18,17 +20,14 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  useEffect(() => {
-    document.title = "Krithik Sharan S A";
-  }, []);
-
-  return (
+const App = () => (
+  <ThemeProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Index />} />
@@ -45,7 +44,7 @@ const App = () => {
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
-  );
-};
+  </ThemeProvider>
+);
 
 export default App;
