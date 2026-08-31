@@ -306,7 +306,10 @@ export const hackathonProjects = [
   {
     title: "AI in the Box Hackathon",
     description:
-      "A hackathon run by the Leeds AI Society with Leaning Technologies, Helix and the University of Leeds (2-3 May 2026). Reached the Top 10 finalist round.",
+      "Built 'Brow-Code?' with Team WASD: a unified development environment merging an AI-powered C++ learning playground (Gemini code generation, in-browser execution, algorithm visualiser, AI debugger) with a real-time multiplayer JavaScript battle arena, all running in-browser on BrowserPod. AI in the Box Hackathon 2026 (Leeds AI Society x Leaning Technologies, University of Leeds). Reached the Top 10 finalist round.",
+    githubUrl: "https://github.com/krithiksharan13/Brow-Code",
+    liveUrl: "https://brow-code.vercel.app",
+    tools: ["Vite", "React", "Google Gemini 2.5 Flash", "BrowserPod", "JSCPP", "WebSockets", "Node.js"],
     result: "Top 10 Finalist",
   },
   {

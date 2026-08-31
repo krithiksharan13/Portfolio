@@ -7,6 +7,11 @@ export interface HackathonProjectImage {
   alt: string;
 }
 
+export interface HackathonProjectSection {
+  heading: string;
+  items: string[];
+}
+
 export interface HackathonProject {
   title: string;
   description: string;
@@ -14,6 +19,9 @@ export interface HackathonProject {
   liveUrl?: string;
   isWinner?: boolean;
   position?: string;
+  tools?: string[];
+  sections?: HackathonProjectSection[];
+  people?: { heading: string; names: string[] };
   images?: HackathonProjectImage[];
 }
 
@@ -31,8 +39,55 @@ export const hackathonProjects: HackathonProject[] = [
   {
     title: 'AI in the Box Hackathon',
     description:
-      'A hackathon run by the Leeds AI Society with Leaning Technologies, Helix and the University of Leeds (2-3 May 2026). Reached the Top 10 finalist round.',
+      'Built "Brow-Code?" with Team WASD - a unified development environment that merges an AI-powered C++ learning playground with a real-time multiplayer JavaScript battle arena, all running in-browser on BrowserPod. Reached the Top 10 finalist round.',
     position: 'Top 10 Finalist',
+    githubUrl: 'https://github.com/krithiksharan13/Brow-Code',
+    liveUrl: 'https://brow-code.vercel.app',
+    tools: [
+      'Vite',
+      'React',
+      'Google Gemini 2.5 Flash',
+      'BrowserPod',
+      'JSCPP',
+      'WebSockets',
+      'Node.js',
+    ],
+    sections: [
+      {
+        heading: 'Learn - AI C++ playground',
+        items: [
+          'AI code generation: describe a problem in plain English and Gemini writes the C++.',
+          'Instant in-browser execution via BrowserPod and JSCPP - no local toolchain.',
+          'Algorithm visualiser: steps through complex logic as a sequence of readable states.',
+          'AI debugger: identifies the error line, explains the cause, and proposes a fix.',
+        ],
+      },
+      {
+        heading: 'Game - multiplayer JS battle arena',
+        items: [
+          'Multiplayer rooms: create a room, share the link, and battle head-to-head.',
+          'Algorithmic JavaScript puzzles - solve faster than your opponent to win rounds.',
+          'Sandboxed execution in an isolated Node.js VM for safe judging.',
+        ],
+      },
+      {
+        heading: 'The brief',
+        items: [
+          'AI in the Box Hackathon 2026 at Helix, University of Leeds (2-3 May), run by the Leeds AI Society with Leaning Technologies.',
+          'Rule #1: every project must run on BrowserPod - an in-browser WebAssembly compute sandbox.',
+          'Judged on creativity, technical sophistication, impact, and design/UX.',
+        ],
+      },
+    ],
+    people: {
+      heading: 'Team WASD',
+      names: [
+        'Krithik Sharan Suresh Alagianayagi',
+        'Uday Kiran Reddy Mule',
+        'Haritej Karimisetti',
+        'Asjad Moiz Khan',
+      ],
+    },
     images: [
       { src: aiInTheBoxCertificate, alt: 'AI in the Box Hackathon certificate of participation' },
     ],

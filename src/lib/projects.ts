@@ -102,11 +102,12 @@ function normalize(): NormalizedProject[] {
       title: p.title,
       summary: p.description,
       images: p.images,
-      tools: [],
+      tools: p.tools ?? [],
       badges: badge ? [badge] : [],
       githubUrl: p.githubUrl,
       liveUrl: p.liveUrl,
-      sections: [],
+      sections: p.sections ?? [],
+      people: p.people,
     });
   }
 
