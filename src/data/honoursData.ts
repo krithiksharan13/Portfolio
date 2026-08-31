@@ -1,6 +1,8 @@
 import specialRecognitionAward from "@/assets/honours/special-recognition-award.webp";
 import schoolRepCelebration from "@/assets/honours/school-rep-celebration.webp";
 import epsFacultyOfficerCertificate from "@/assets/honours/eps-faculty-officer-certificate.webp";
+import academicRepAward from "@/assets/honours/academic-rep-award.webp";
+import academicRepCertificate from "@/assets/honours/academic-rep-certificate.webp";
 
 export interface HonourImage {
   src: string;
@@ -41,7 +43,10 @@ export const honours: Honour[] = [
     date: "Apr 2026",
     associatedWith: "University of Leeds",
     description:
-      "Awarded for outstanding contribution to student representation, following nomination by 10+ students and staff members. Recognised for consistently engaging with peers and university stakeholders, effectively advocating student perspectives, and driving meaningful academic improvements that enhanced the overall learning experience.",
-    images: [],
+      "Awarded for outstanding contribution to student representation, following nomination by 10+ students and staff members. Recognised for consistently engaging with peers and university stakeholders, effectively advocating student perspectives, and driving meaningful academic improvements that enhanced the overall learning experience. Presented at the 2026 Leeds Partnership Awards.",
+    images: [
+      { src: academicRepAward, alt: "Krithik receiving the Academic Rep of the Year award at the 2026 Leeds Partnership Awards" },
+      { src: academicRepCertificate, alt: "Academic Rep of the Year certificate, 2026 Leeds Partnership Awards" },
+    ],
   },
 ];

@@ -41,13 +41,17 @@ const HackathonProjectCard = ({
             </Badge>
           )}
           {position && (
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <Medal className="h-3 w-3 flex-shrink-0" /> {position}
+            <Badge
+              variant="secondary"
+              className="flex h-auto max-w-[6rem] flex-col items-center gap-0.5 py-1.5 text-center leading-tight"
+            >
+              <Medal className="h-3 w-3 shrink-0" />
+              <span>{position}</span>
             </Badge>
           )}
         </div>
         <CardHeader>
-          <CardTitle className="pr-16">
+          <CardTitle className="pr-24">
             <Link to={to} className="hover:text-primary transition-colors">
               {title}
             </Link>
