@@ -32,6 +32,19 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen]);
+
   const linkClassName = ({ isActive }: { isActive: boolean }) =>
     cn(
       "text-foreground/80 hover:text-primary transition-colors cursor-pointer hover:underline underline-offset-4 py-2",
@@ -58,7 +71,7 @@ const Header = () => {
             <h1 className="text-2xl font-bold text-primary">Krithik Sharan S A</h1>
           </RouterLink>
         </div>
-        <nav className="hidden md:flex space-x-8 items-center">
+        <nav aria-label="Primary" className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -87,9 +100,9 @@ const Header = () => {
         <motion.div 
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="md:hidden bg-background/90"
+          className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border/50"
         >
-          <nav className="flex flex-col items-center space-y-4 py-4">
+          <nav aria-label="Mobile" className="flex flex-col items-center space-y-4 py-4">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}

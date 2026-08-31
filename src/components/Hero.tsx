@@ -10,8 +10,10 @@ const Hero = () => {
   const hoverImage = "/lovable-uploads/788976e7-1c83-4adf-8dbf-06ecde26b348.png";
   const resumeImageUrl = "/lovable-uploads/f164f755-3db9-4fd9-a20c-fd4ec12b4e51.png";
 
-  const greeting = "Hi, I’m ".split("");
-  const name = "Krithik Sharan S A".split("");
+  const greetingWords = ["Hi,", "I’m"];
+  const nameWords = ["Krithik", "Sharan", "S", "A"];
+  let charIndex = 0;
+  const nextDelay = () => `${charIndex++ * 45}ms`;
 
   const handleDownloadResume = () => {
     const img = new Image();
@@ -78,15 +80,31 @@ const Hero = () => {
             className="order-1 md:order-2"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              {greeting.map((char, index) => (
-                <span key={index} className="inline-block animate-wave-text" style={{ animationDelay: `${index * 60}ms` }}>
-                  {char === " " ? "\u00A0" : char}
+              {greetingWords.map((word, wi) => (
+                <span key={`g-${wi}`} className="inline-block whitespace-nowrap mr-[0.25em]">
+                  {word.split("").map((char, ci) => (
+                    <span
+                      key={ci}
+                      className="inline-block animate-wave-text"
+                      style={{ animationDelay: nextDelay() }}
+                    >
+                      {char}
+                    </span>
+                  ))}
                 </span>
               ))}
               <span className="text-primary">
-                {name.map((char, index) => (
-                  <span key={index} className="inline-block animate-wave-text" style={{ animationDelay: `${(greeting.length + index) * 60}ms` }}>
-                    {char === " " ? "\u00A0" : char}
+                {nameWords.map((word, wi) => (
+                  <span key={`n-${wi}`} className="inline-block whitespace-nowrap mr-[0.25em]">
+                    {word.split("").map((char, ci) => (
+                      <span
+                        key={ci}
+                        className="inline-block animate-wave-text"
+                        style={{ animationDelay: nextDelay() }}
+                      >
+                        {char}
+                      </span>
+                    ))}
                   </span>
                 ))}
               </span>
