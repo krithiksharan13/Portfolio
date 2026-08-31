@@ -1,35 +1,50 @@
-# Krithik Sharan's Personal Portfolio Website
+# Krithik Sharan S A — Portfolio
 
-This repository contains the code and assets for my personal portfolio website, built to showcase my skills, experience, and projects.
+Personal portfolio website. Originally prototyped on Lovable, now a self-hosted
+Vite + React app deployed on Netlify with a Supabase backend for the live
+visitor counter and contact form.
 
-**Live Website:** <https://krithik-sharan-portfolio-website.lovable.app/>
+## Stack
 
-## 🏆 DevOne Hack Hackathon Submission
+- **Vite** + **React 18** + **TypeScript**
+- **Tailwind CSS** + **shadcn/ui** + **framer-motion**
+- **react-router-dom** (client-side routing)
+- **Supabase** — visitor counter + contact-message storage
+- **Netlify** — hosting
 
-This project was built and submitted as part of the **DevOne Hack** hackathon. This repository was created to push the project to GitHub for the hackathon submission.
+## Local development
 
-* **Devpost Link:** <https://devonehack.devpost.com/>
+```bash
+npm install
+cp .env.example .env   # fill in Supabase values
+npm run dev            # http://localhost:8080
+```
 
-## 🛠️ Built With
+### Scripts
 
-This entire website was developed, built, and deployed using [**lovable.ai**](https://lovable.ai/).
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Production build to `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript, no emit |
 
-* **Lovable.ai Project URL:** <https://lovable.dev/projects/7193697e-fc47-434a-a797-4165a7a79872>
+## Environment variables
 
-## 🚀 Features & Sections
+See `.env.example`. Set the same variables in the Netlify dashboard
+(Site settings → Environment variables) for production builds.
 
-The portfolio is a comprehensive site that includes the following sections:
+## Content
 
-* **🏠 Home:** A welcoming landing page with a brief introduction.
+All portfolio content lives in `src/data/*`. Update those files to change
+experience, projects, certificates, education, and volunteering entries.
 
-* **👤 About:** A detailed section about my background, skills, and professional interests.
+## Backend
 
-* **🎓 Education:** A timeline of my academic qualifications and achievements.
+- SQL schema: `supabase/migrations/`
+- Edge functions: `supabase/functions/`
 
-* **💼 Experience:** A detailed record of my professional work history.
+## Deployment
 
-* **🤝 Volunteering:** Information on my community involvement and volunteer roles.
-
-* **🎨 Portfolio:** A gallery showcasing my personal and professional projects.
-
-* **📞 Contact:** A simple way to get in touch with me.
+Push to the default branch; Netlify builds from `netlify.toml`.
