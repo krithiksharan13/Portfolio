@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://krithik-sharan.netlify.app/sitemap.xml
+Sitemap: https://krithik-sharan.vercel.app/sitemap.xml

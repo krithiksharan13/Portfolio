@@ -40,7 +40,7 @@ export const hackathonProjects: HackathonProject[] = [
   {
     title: 'DevOne Hack',
     description: 'This project was built and submitted as part of the DevOne Hack hackathon. This repository was created to push the project to GitHub for the hackathon submission. This repository contains the code and assets for my personal portfolio website, built to showcase my skills, experience, and projects.',
-    githubUrl: 'https://github.com/krithiksharan13/krithik-sharan-portfolio-website',
-    liveUrl: 'https://krithik-sharan-portfolio-website.lovable.app/',
+    githubUrl: 'https://github.com/krithiksharan13/Portfolio',
+    liveUrl: 'https://krithik-sharan.vercel.app/',
   },
 ];

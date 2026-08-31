@@ -1,9 +1,9 @@
 /**
  * Site-wide config. Update SITE_URL once the final domain is known
- * (Netlify subdomain or custom domain) - it feeds canonical + OG tags
+ * (Vercel subdomain or custom domain) - it feeds canonical + OG tags
  * and the sitemap.
  */
-export const SITE_URL = "https://krithik-sharan.netlify.app";
+export const SITE_URL = "https://krithik-sharan.vercel.app";
 
 export const SITE_NAME = "Krithik Sharan S A";
 export const SITE_TAGLINE = "A Data Analyst who transforms numbers into narratives.";

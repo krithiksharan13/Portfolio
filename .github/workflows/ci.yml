@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [master, main]
+    branches: [main]
   pull_request:
 
 jobs:
@@ -24,11 +24,10 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # Supabase env vars aren't needed for a successful build (the client just
+      # warns at runtime); the real build runs on Vercel with them set.
       - name: Build
         run: npm run build
-        env:
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
 
       - name: MCP smoke test
         run: npx --yes tsx supabase/functions/mcp/smoke-test.mjs

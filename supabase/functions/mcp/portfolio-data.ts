@@ -17,7 +17,7 @@ export const profile = {
     "MSc Data Science and Analytics student, University of Leeds",
   ],
   links: {
-    website: "https://krithik-sharan.netlify.app",
+    website: "https://krithik-sharan.vercel.app",
     email: "krithiksharan13@gmail.com",
     linkedin: "https://www.linkedin.com/in/krithiksharan",
     github: "https://github.com/krithiksharan13",
@@ -335,8 +335,8 @@ export const hackathonProjects = [
     description:
       "The portfolio website itself, built and submitted for the DevOne Hack hackathon.",
     githubUrl:
-      "https://github.com/krithiksharan13/krithik-sharan-portfolio-website",
-    liveUrl: "https://krithik-sharan.netlify.app/",
+      "https://github.com/krithiksharan13/Portfolio",
+    liveUrl: "https://krithik-sharan.vercel.app/",
     result: "Submission",
   },
 ];

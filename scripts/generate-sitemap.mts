@@ -11,7 +11,7 @@ import {
   portfolioProjects,
 } from "../supabase/functions/mcp/portfolio-data.ts";
 
-const SITE_URL = process.env.SITE_URL || "https://krithik-sharan.netlify.app";
+const SITE_URL = process.env.SITE_URL || "https://krithik-sharan.vercel.app";
 
 const slugify = (s: string) =>
   s

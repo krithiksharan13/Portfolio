@@ -2,7 +2,7 @@
 
 Personal portfolio site for Krithik Sharan S A, a data analyst and MSc Data
 Science student at the University of Leeds. Originally prototyped on Lovable,
-now a self-hosted single-page app on Netlify with a Supabase backend.
+now a self-hosted single-page app on Vercel with a Supabase backend.
 
 <p align="center">
   <img src="public/og-image.png" alt="Krithik Sharan S A - Data Analyst" width="640" />
@@ -32,7 +32,7 @@ now a self-hosted single-page app on Netlify with a Supabase backend.
 | Styling | Tailwind CSS · shadcn/ui · framer-motion |
 | Routing | react-router-dom (client-side) |
 | Backend | Supabase (Postgres + RPC + edge functions) |
-| Hosting | Netlify |
+| Hosting | Vercel |
 
 ## Local development
 
@@ -59,7 +59,7 @@ npm run dev             # http://localhost:8080
 
 | Variable | Where |
 | --- | --- |
-| `VITE_SUPABASE_URL` | `.env` locally · Netlify → Site settings → Environment variables |
+| `VITE_SUPABASE_URL` | `.env` locally · Vercel → Project Settings → Environment Variables |
 | `VITE_SUPABASE_ANON_KEY` | same |
 
 ## Project structure
@@ -89,8 +89,9 @@ SQL Editor (or `supabase db push`). It creates:
 
 ## Deployment
 
-Netlify builds from `netlify.toml` (`npm run build` → `dist/`, SPA fallback,
-cache + security headers). Push to the default branch to deploy.
+Vercel builds from `vercel.json` (`npm run build` → `dist/`, SPA rewrite to
+`index.html`, cache + security headers). Every push to `main` auto-deploys;
+pull requests get preview deployments.
 
 ## License
 
