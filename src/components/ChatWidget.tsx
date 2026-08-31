@@ -3,8 +3,8 @@ import { Loader2, Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const AVATAR = "/lovable-uploads/6f80d9a7-6e7c-4703-a7c1-a9470358b9ec.webp";
-const AVATAR_WAVE = "/lovable-uploads/788976e7-1c83-4adf-8dbf-06ecde26b348.webp";
+const AVATAR = "/chat-avatar.webp"; // default (sunglasses)
+const AVATAR_HOVER = "/chat-avatar-hover.webp"; // on hover (no sunglasses)
 
 interface Msg {
   role: "user" | "assistant";
@@ -114,22 +114,22 @@ const ChatWidget = () => {
           onClick={() => setOpen(true)}
           aria-label="Ask about Krithik"
           title="Ask me about Krithik"
-          className="group fixed bottom-3 right-3 z-50 transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+          className="group fixed bottom-4 right-4 z-50 transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
         >
-          <span className="relative block h-28 w-20 sm:h-32 sm:w-24">
+          <span className="relative block h-16 w-16 overflow-hidden rounded-full shadow-lg sm:h-[4.5rem] sm:w-[4.5rem]">
             <img
               src={AVATAR}
               alt=""
-              className="absolute inset-0 h-full w-full object-contain drop-shadow-lg transition-opacity duration-200 group-hover:opacity-0"
+              className="absolute inset-0 h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-0"
             />
             <img
-              src={AVATAR_WAVE}
+              src={AVATAR_HOVER}
               alt=""
               aria-hidden
-              className="absolute inset-0 h-full w-full object-contain opacity-0 drop-shadow-lg transition-opacity duration-200 group-hover:opacity-100"
+              className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-200 group-hover:opacity-100"
             />
           </span>
-          <span className="pointer-events-none absolute -left-2 top-2 -translate-x-full rounded-lg border border-border/60 bg-card px-2.5 py-1 text-xs font-medium shadow-md opacity-0 transition-opacity group-hover:opacity-100">
+          <span className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-lg border border-border/60 bg-card px-2.5 py-1 text-xs font-medium shadow-md opacity-0 transition-opacity group-hover:opacity-100">
             Ask me anything
           </span>
         </button>
@@ -143,7 +143,7 @@ const ChatWidget = () => {
           className="fixed bottom-3 right-3 z-50 flex w-[min(24rem,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl h-[min(34rem,calc(100vh-5rem))]"
         >
           <header className="flex items-center gap-3 border-b border-border/60 px-4 py-3">
-            <img src={AVATAR} alt="" className="h-8 w-8 shrink-0 object-contain" />
+            <img src={AVATAR} alt="" className="h-9 w-9 shrink-0 rounded-full object-cover" />
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold leading-tight">Ask about Krithik</p>
               <p className="text-xs text-foreground/50">AI assistant · answers from his portfolio</p>
