@@ -57,12 +57,12 @@ const ChatWidget = () => {
       });
 
       if (!res.ok || !res.body) {
-        const msg =
-          (await res.json().catch(() => null))?.error ??
-          "Something went wrong. Please try again or use the contact page.";
+        const body = await res.json().catch(() => null);
+        const msg = body?.error ?? "Something went wrong. Please try again or use the contact page.";
+        const detail = body?.detail ? `\n\n(${body.upstreamStatus ?? ""} ${String(body.detail).slice(0, 300)})` : "";
         setMessages((m) => {
           const copy = [...m];
-          copy[copy.length - 1] = { role: "assistant", content: msg };
+          copy[copy.length - 1] = { role: "assistant", content: msg + detail };
           return copy;
         });
         return;

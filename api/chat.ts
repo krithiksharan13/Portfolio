@@ -67,7 +67,7 @@ async function underRateLimit(ip: string): Promise<boolean> {
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) {
     return json(
       { error: "The chat assistant isn't configured yet. Try the contact form instead." },
@@ -133,7 +133,21 @@ export default async function handler(req: Request): Promise<Response> {
   );
 
   if (!upstream.ok || !upstream.body) {
-    return json({ error: "The assistant is having a moment. Please try again." }, 502);
+    let detail = "";
+    try {
+      detail = (await upstream.text()).slice(0, 600);
+    } catch {
+      /* ignore */
+    }
+    console.error("gemini upstream error", upstream.status, detail);
+    return json(
+      {
+        error: "The assistant is having a moment. Please try again.",
+        upstreamStatus: upstream.status,
+        detail,
+      },
+      502,
+    );
   }
 
   // Transform Gemini's SSE stream into a plain-text token stream for the client.
